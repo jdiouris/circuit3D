@@ -1,6 +1,6 @@
 # Circuit 3D
 Circuit 3d allows to design 3D printed boards for simple electronic circuits. It is coded in Processing language.
-A 3D file can be generate and the OPENSCAD software can be used to obtain a stl file for the 3D printer.
+A 3D file can be generatet and the OPENSCAD software can be used to obtain a stl file for the 3D printer.
 
 ## Help
 
