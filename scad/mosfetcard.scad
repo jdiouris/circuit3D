@@ -1,0 +1,40 @@
+$fn=50;
+translate([0,50.8,0]) mirror([0,1,0]) difference()
+{
+    cube([50.8,35.559998,2]);
+    translate([2.54,2.54,-0.1]) cylinder(h=10,d=3.1);
+    translate([48.26,2.54,-0.1]) cylinder(h=10,d=3.1);
+    translate([2.54,33.02,-0.1]) cylinder(h=10,d=3.1);
+    translate([48.26,33.02,-0.1]) cylinder(h=10,d=3.1);
+    translate([24.13,7.62,-0.1]) cylinder(h=10,d=2.0);
+    translate([24.13,10.16,-0.1]) cylinder(h=10,d=2.0);
+    translate([24.13,12.7,-0.1]) cylinder(h=10,d=2.0);
+    translate([1.27,5.08,1.5]) cube([16.002,10.16,10]);
+    translate([7.5437994,10.16,-0.1]) cylinder(h=10,d=4.1);
+    translate([17.779999,17.779999,-0.1]) cylinder(h=10,d=1.5);
+    translate([17.779999,25.4,-0.1]) cylinder(h=10,d=1.5);
+    translate([16.51,19.05,1.5]) cube([2.54,5.08,10]);
+    translate([30.48,6.35,-0.1]) cylinder(h=10,d=1.5);
+    translate([30.48,13.969999,-0.1]) cylinder(h=10,d=1.5);
+    translate([29.21,7.62,1.5]) cube([2.54,5.08,10]);
+    translate([25.4,13.969999,1]) linear_extrude(10) mirror([0,1,0]) text("G",size=3);
+    translate([25.4,10.16,1]) linear_extrude(10) mirror([0,1,0]) text("D",size=3);
+    translate([25.4,6.35,1]) linear_extrude(10) mirror([0,1,0]) text("S",size=3);
+    translate([30.48,26.67,1]) linear_extrude(10) mirror([0,1,0]) text("GND",size=3);
+    translate([31.75,22.86,1]) linear_extrude(10) mirror([0,1,0]) text("12 V",size=3);
+    translate([33.02,7.62,1]) linear_extrude(10) mirror([0,1,0]) text("12 V",size=3);
+    translate([3.81,33.02,1]) linear_extrude(10) mirror([0,1,0]) text("GND",size=3);
+    translate([2.54,19.05,1]) linear_extrude(10) mirror([0,1,0]) text("CMD",size=3);
+    translate([15.24,33.02,1]) linear_extrude(10) mirror([0,1,0]) text("MOSFET CARD",size=3);
+    translate([7.62,3.81,1]) linear_extrude(10) mirror([0,1,0]) text("MOSFET",size=3);
+    translate([41.401997,5.1689,1.5]) cube([9.651999,8.382,10]);
+    translate([43.18,7.62,-0.1]) cylinder(h=10,d=2.0);
+    translate([43.18,11.099799,-0.1]) cylinder(h=10,d=2.0);
+    translate([41.401997,20.4089,1.5]) cube([9.651999,8.382,10]);
+    translate([43.18,22.86,-0.1]) cylinder(h=10,d=2.0);
+    translate([43.18,26.3398,-0.1]) cylinder(h=10,d=2.0);
+    translate([33.02,12.7,1]) linear_extrude(10) mirror([0,1,0]) text("OUT",size=3);
+    translate([-0.25399974,20.4089,1.5]) cube([9.651999,8.382,10]);
+    translate([7.62,22.86,-0.1]) cylinder(h=10,d=2.0);
+    translate([7.62,26.3398,-0.1]) cylinder(h=10,d=2.0);
+}

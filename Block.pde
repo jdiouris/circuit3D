@@ -91,15 +91,21 @@ class Block
     return content.get(i);
   }
   
+  void set(int i, String s)
+  {
+    content.set(i,s);
+  }
+  
   String disp()
   {
-    String s="";
-    s="Block size: "+size();
+    String s="Block("+x+","+y+","+xw+","+yw+") ";
+   // s="Block size: "+size();
     for (int j=0;j<size(); j++)
     {
       s+=get(j)+" ";
       
     }
+    println(s);
     return s;
   }
   
