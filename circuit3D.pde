@@ -9,7 +9,7 @@ int white=255;
 int gray=128;
 int darkGray=64;
 int lightGray=190;
-String welcome = "Welcome to circuit3D V0.1";
+String welcome = "Welcome to circuit3D V02.10.19";
 
 
 void settings() 
