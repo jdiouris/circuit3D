@@ -9,7 +9,7 @@ int white=255;
 int gray=128;
 int darkGray=64;
 int lightGray=190;
-String welcome = "Welcome to circuit3D V02.10.19";
+String welcome = "Welcome to circuit3D V0.19.10.05";
 
 
 void settings() 
@@ -120,28 +120,28 @@ void boardDim()
 {
   //JList list = new JList(listeGroupes);
   //list.setSelectedIndex(0);
-  String val=str(boardLength)+","+boardWidth+",2";
-  setMessage(val);
-   String s= JOptionPane.showInputDialog( null, "Board dimensions("+val+")", "Board dimensions", JOptionPane.PLAIN_MESSAGE);
+  String val=str(boardLength)+","+boardWidth;
+ // setMessage(val);
+   String s= JOptionPane.showInputDialog( null, "Board dimensions "+val, "Board dimensions", JOptionPane.PLAIN_MESSAGE);
    boolean ok=true;
    if (s!=null)
    {
    String e[]=s.split(",");
    float x1=0;
    float x2=0;
-   float x3=0;
-   if (e.length<3) ok=false;
+   float x3=2;
+   if (e.length<2) ok=false;
    else 
    {
      if (isNumber(e[0])) x1=toFloat(e[0]); else ok=false;
      if (isNumber(e[1])) x2=toFloat(e[1]); else ok=false;
-     if (isNumber(e[2])) x3=toFloat(e[2]); else ok=false;
+   //  if (isNumber(e[2])) x3=toFloat(e[2]); else ok=false;
    }
    if (ok)
    {
      println(x1);
      println(x2);
-     println(x3);
+     //println(x3);
      
      circuit.setBoardSize(x1,x2,x3);
      println(circuit.get(0).disp());
@@ -205,7 +205,7 @@ boolean isNumber(String s)
     }
 }
 
-void exe(float xx, float yy,String s, boolean selected)
+int exe(float xx, float yy,String s, boolean selected)
 {
   if (s.equals("BOARD"))
   {
@@ -263,12 +263,13 @@ void exe(float xx, float yy,String s, boolean selected)
     text(ss.substring(1,ss.length()),x*scale+x0,y*scale+y0);
   }
   
-  
+ return 1; 
 }
 
 void drawCircuit()
 {
   stack= new Stack<String>();
+  int resu=1;
 //  fill(darkGray);  noStroke();
 //  rect(x0+5,y0+5,boardLength*scale,boardWidth*scale);
 //  fill(gray);  stroke(gray);
@@ -283,7 +284,14 @@ void drawCircuit()
       if (s.charAt(0)=='"') stack.push(s);
       else
       if (isNumber(s)) stack.push(s);
-      else exe(b.x,b.y,s,b.selected);
+      else 
+      { 
+        resu=exe(b.x,b.y,s,b.selected);
+        if (resu==0) 
+        { 
+          JOptionPane.showMessageDialog (null, "Errornous block suppressed");
+        }
+      }
     }
     //if (circuit.isNumber(i)) stack.append(circuit.toInt(i));
   }
