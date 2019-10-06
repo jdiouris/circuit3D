@@ -22,8 +22,11 @@ Component layout are defined in txt file in the cpt folder as a list of drawing 
 For example, to obtain a hole in position 0, 0 with diameter 1.5mm the instruction is:
 
 0
+
 0
+
 1.5
+
 HOLE
 
 Other instruction are TRACE and TEXT. See examples in the cpt folder.
