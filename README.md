@@ -29,6 +29,7 @@ For example, to obtain a hole in position 0, 0 with diameter 1.5mm the instructi
 
 HOLE
 
+Note that the x y positions are multiple of 0.1 inch and the diameter is in mm.
 Other instruction are TRACE and TEXT. See examples in the cpt folder.
 
 
