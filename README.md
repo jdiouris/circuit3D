@@ -5,7 +5,7 @@ Then a 3D file can be generated and the OPENSCAD software can be used to obtain 
 
 ## How to install the software?
 Download the project folder on your hard disk. You must install Processing (https://processing.org/download/). Load circuit3d in processing and run the software.
-Important notice : this is a simple software and a work in progress (so there is no guarantee).
+Important notice : this is a simple software and a work in progress (so there is absolutely no guarantee).
 
 ## Help
 
@@ -13,21 +13,21 @@ Important notice : this is a simple software and a work in progress (so there is
 - SIZE : change the size of the board in mm.
 - ADD : add components. The component files are txt files. Select components and deplace them with the mouse. 
 - SUP : suppress the selected component.
-- TEXT : Add  text at the clicked position of the mouse.
-- WIRE : Add wires. This wires will not be printed but can be used as an help to connect the components.
+- TEXT : add  text at the clicked position of the mouse.
+- WIRE : add wires. This wires will not be printed but can be used as help to connect the components.
 - GEN : generate the OPENSCAD file.
 - SAVE : save the circuit in a file.
 - LOAD : load a circuit.
 - QUIT : quit the software.
 
-## component Layout
+## Component Layout
 
-Component layout are defined in txt file in the cpt folder as a list of drawing instructions.
-For example, to obtain a hole in position 0, 0 with diameter 1.5mm the instruction is:
-
-0
+Component layout are defined in text file in the cpt folder as a list of drawing instructions.
+For example, to obtain a hole in position x=0 and y=1 with diameter 1.5mm the instruction is:
 
 0
+
+1
 
 1.5
 
