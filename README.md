@@ -4,7 +4,7 @@ You can draw your board using layout for resistors, transistors, capacitors, ICs
 Then a 3D file can be generated and the OPENSCAD software can be used to obtain a stl file for the 3D printer.
 
 ## How to install the software?
-Download the project folder on your hard disk. You must install Processing (https://processing.org/download/). Load circuit3d in processing and run the software.
+Download the project folder on your hard disk. Rename it as circuit3d. You must install Processing (https://processing.org/download/). Load circuit3d in processing and run the software.
 Important notice : this is a simple software and a work in progress (so there is absolutely no guarantee).
 
 ## Help

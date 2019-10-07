@@ -328,7 +328,7 @@ void setMessage(String s)
 void save()
 {
   StringList lines;
-  if (nFile.equals("noname")) nFile= JOptionPane.showInputDialog( null, "File Name", "Selection du groupe", JOptionPane.PLAIN_MESSAGE);
+  if (nFile.equals("noname")) nFile= circuitPath+JOptionPane.showInputDialog( null, "File Name", "Selection du groupe", JOptionPane.PLAIN_MESSAGE);
   PrintWriter output=createWriter(nFile);
   for (int i=0; i<circuit.size(); i++)
   {
