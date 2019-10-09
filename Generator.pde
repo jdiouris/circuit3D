@@ -35,6 +35,13 @@ class Generator
     lines.append("    translate(["+x*scale+","+y*scale+",1.5]) cube(["+xw*scale+","+yw*scale+",10]);");
     
   }
+   else if (s.equals("CIRCLE"))
+  {
+    float d=toFloat(stack.pop());
+    float y=toFloat(stack.pop())+yy;
+    float x=toFloat(stack.pop())+xx;
+    lines.append("    translate(["+x*scale+","+y*scale+",1.5]) cylinder(h=10,d="+d*scale+");");    
+  }
   else if (s.equals("TEXT"))
   {
    // println(stack.toString());

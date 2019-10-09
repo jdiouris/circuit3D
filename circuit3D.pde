@@ -238,6 +238,16 @@ int exe(float xx, float yy,String s, boolean selected)
     else stroke(white); 
     rect(x*scale+x0,y*scale+y0,xw*scale,yw*scale);
   }
+  else if (s.equals("CIRCLE"))
+  {
+    float d=toFloat(stack.pop());
+    float y=toFloat(stack.pop())+yy;
+    float x=toFloat(stack.pop())+xx;
+    fill(100);
+    if (selected) stroke(255,0,0);
+    else stroke(white); 
+    ellipse(x*scale+x0,y*scale+y0,d*scale,d*scale);
+  }
   else if (s.equals("LINE"))
   {
     float y2=toFloat(stack.pop())+yy;
