@@ -204,13 +204,23 @@ boolean isNumber(String s)
         return false;
     }
 }
+int stackError;
+
+String stackpop()
+{
+  String resu="0";
+  if (stack.empty()) stackError=1;
+  else resu=stack.pop();
+  return resu;
+}
 
 int exe(float xx, float yy,String s, boolean selected)
 {
+  stackError=0;
   if (s.equals("BOARD"))
   {
-    float yw=toFloat(stack.pop());
-    float xw=toFloat(stack.pop());
+    float yw=toFloat(stackpop());
+    float xw=toFloat(stackpop());
     fill(darkGray);  noStroke();
     rect(x0+5,y0+5,xw*scale,yw*scale);
     fill(gray);  stroke(gray);
@@ -218,9 +228,9 @@ int exe(float xx, float yy,String s, boolean selected)
   }
   if (s.equals("HOLE"))
   {
-    float d=toFloat(stack.pop());
-    float y=toFloat(stack.pop())+yy;
-    float x=toFloat(stack.pop())+xx;
+    float d=toFloat(stackpop());
+    float y=toFloat(stackpop())+yy;
+    float x=toFloat(stackpop())+xx;
     fill(black);
     if (selected) stroke(255,0,0);
     else stroke(white); 
@@ -229,10 +239,10 @@ int exe(float xx, float yy,String s, boolean selected)
   }
   else if (s.equals("TRACE"))
   {
-    float yw=toFloat(stack.pop());
-    float xw=toFloat(stack.pop());
-    float y=toFloat(stack.pop())+yy;
-    float x=toFloat(stack.pop())+xx;
+    float yw=toFloat(stackpop());
+    float xw=toFloat(stackpop());
+    float y=toFloat(stackpop())+yy;
+    float x=toFloat(stackpop())+xx;
     fill(100);
     if (selected) stroke(255,0,0);
     else stroke(white); 
@@ -240,9 +250,9 @@ int exe(float xx, float yy,String s, boolean selected)
   }
   else if (s.equals("CIRCLE"))
   {
-    float d=toFloat(stack.pop());
-    float y=toFloat(stack.pop())+yy;
-    float x=toFloat(stack.pop())+xx;
+    float d=toFloat(stackpop());
+    float y=toFloat(stackpop())+yy;
+    float x=toFloat(stackpop())+xx;
     fill(100);
     if (selected) stroke(255,0,0);
     else stroke(white); 
@@ -250,10 +260,10 @@ int exe(float xx, float yy,String s, boolean selected)
   }
   else if (s.equals("LINE"))
   {
-    float y2=toFloat(stack.pop())+yy;
-    float x2=toFloat(stack.pop())+xx;
-    float y1=toFloat(stack.pop())+yy;
-    float x1=toFloat(stack.pop())+xx;
+    float y2=toFloat(stackpop())+yy;
+    float x2=toFloat(stackpop())+xx;
+    float y1=toFloat(stackpop())+yy;
+    float x1=toFloat(stackpop())+xx;
     //println("Line "+x1+","+y1+","+y1+","+y2);
     if (selected) stroke(255,0,0);
     else stroke(10,20,100); 
@@ -263,9 +273,9 @@ int exe(float xx, float yy,String s, boolean selected)
   else if(s.equals("TEXT"))
   {
    // println(stack.toString());
-    String ss=stack.pop();
-    float y=toFloat(stack.pop())+yy+6/scale;
-    float x=toFloat(stack.pop())+xx;
+    String ss=stackpop();
+    float y=toFloat(stackpop())+yy+6/scale;
+    float x=toFloat(stackpop())+xx;
      if (selected) fill(255,0,0);
     else fill(0);
     //println(ss+" at "+x+" "+y);
@@ -273,7 +283,7 @@ int exe(float xx, float yy,String s, boolean selected)
     text(ss.substring(1,ss.length()),x*scale+x0,y*scale+y0);
   }
   
- return 1; 
+ return stackError; 
 }
 
 void drawCircuit()
@@ -297,9 +307,12 @@ void drawCircuit()
       else 
       { 
         resu=exe(b.x,b.y,s,b.selected);
-        if (resu==0) 
+        if (resu==1) 
         { 
           JOptionPane.showMessageDialog (null, "Errornous block suppressed");
+          circuit.removeBlock(i);
+          j=b.size()+1;
+          i=circuit.size()+1;
         }
       }
     }

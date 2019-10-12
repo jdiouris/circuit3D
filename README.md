@@ -20,6 +20,8 @@ Important notice : this is a simple software and a work in progress (so there is
 - LOAD : load a circuit.
 - QUIT : quit the software.
 
+To select a block, click near the top left of the block.
+
 ## Component Layout
 
 Component layout are defined in text file in the cpt folder as a list of drawing instructions.

@@ -32,6 +32,11 @@ class Circuit
     return content.size();
   }
   
+  void removeBlock(int i)
+  {
+    content.removeElementAt(i);
+  }
+  
   void removeSelectedBlock()
   {
     int ii=-1;
