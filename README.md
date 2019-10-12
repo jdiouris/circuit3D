@@ -13,6 +13,7 @@ Important notice : this is a simple software and a work in progress (so there is
 - SIZE : change the size of the board in mm.
 - ADD : add components. The component files are txt files. Select components and deplace them with the mouse. 
 - SUP : suppress the selected component.
+- ROT : rotate the selected component.
 - TEXT : add  text at the clicked position of the mouse.
 - WIRE : add wires. This wires will not be printed but can be used as help to connect the components.
 - GEN : generate the OPENSCAD file.

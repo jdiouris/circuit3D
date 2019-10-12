@@ -45,6 +45,14 @@ class Circuit
     
     if (ii>=0) content.removeElementAt(ii);
   }
+  void rotSelectedBlock()
+  {
+    int ii=-1;
+    for (int i=0; i<content.size(); i++)
+      if (content.get(i).selected) ii=i;
+    
+    if (ii>=0) content.get(ii).rot();
+  }
   
   void setBoardSize(float x1, float x2, float x3)
   {

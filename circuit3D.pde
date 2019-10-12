@@ -9,12 +9,12 @@ int white=255;
 int gray=128;
 int darkGray=64;
 int lightGray=190;
-String welcome = "Welcome to circuit3D V0.19.10.05";
+String welcome = "Welcome to circuit3D V0.19.10.12";
 
 
 void settings() 
 {
-   size(900, 600);
+   size(1000, 600);
 
 }
 
@@ -31,7 +31,7 @@ void setup() {
  println("Scad Path = "+scadPath);
 }
 
-String mmenu[]={"NEW","SIZE","ADD","SUP","TEXT","WIRE","GEN","SAVE","LOAD","QUIT"};
+String mmenu[]={"NEW","SIZE","ADD","SUP","ROT","TEXT","WIRE","GEN","SAVE","LOAD","QUIT"};
 
 Circuit circuit= new Circuit();
 int iselect=-1;
@@ -214,7 +214,7 @@ String stackpop()
   return resu;
 }
 
-int exe(float xx, float yy,String s, boolean selected)
+int exe(float xx, float yy,String s, boolean selected, int rotation)
 {
   stackError=0;
   if (s.equals("BOARD"))
@@ -229,8 +229,11 @@ int exe(float xx, float yy,String s, boolean selected)
   if (s.equals("HOLE"))
   {
     float d=toFloat(stackpop());
-    float y=toFloat(stackpop())+yy;
-    float x=toFloat(stackpop())+xx;
+    float y=toFloat(stackpop());
+    float x=toFloat(stackpop());
+    if (rotation==1) { float z=x; x=y; y=z; }
+    y=y+yy;
+    x=x+xx;
     fill(black);
     if (selected) stroke(255,0,0);
     else stroke(white); 
@@ -241,8 +244,13 @@ int exe(float xx, float yy,String s, boolean selected)
   {
     float yw=toFloat(stackpop());
     float xw=toFloat(stackpop());
-    float y=toFloat(stackpop())+yy;
-    float x=toFloat(stackpop())+xx;
+    if (rotation==1) { float z=xw; xw=yw; yw=z; }
+    float y=toFloat(stackpop());
+    float x=toFloat(stackpop());
+    if (rotation==1) { float z=x; x=y; y=z; }
+    y=y+yy;
+    x=x+xx;
+    
     fill(100);
     if (selected) stroke(255,0,0);
     else stroke(white); 
@@ -251,8 +259,11 @@ int exe(float xx, float yy,String s, boolean selected)
   else if (s.equals("CIRCLE"))
   {
     float d=toFloat(stackpop());
-    float y=toFloat(stackpop())+yy;
-    float x=toFloat(stackpop())+xx;
+     float y=toFloat(stackpop());
+    float x=toFloat(stackpop());
+    if (rotation==1) { float z=x; x=y; y=z; }
+    y=y+yy;
+    x=x+xx;
     fill(100);
     if (selected) stroke(255,0,0);
     else stroke(white); 
@@ -306,10 +317,10 @@ void drawCircuit()
       if (isNumber(s)) stack.push(s);
       else 
       { 
-        resu=exe(b.x,b.y,s,b.selected);
+        resu=exe(b.x,b.y,s,b.selected,b.rotation);
         if (resu==1) 
         { 
-          JOptionPane.showMessageDialog (null, "Errornous block suppressed");
+          JOptionPane.showMessageDialog (null, "Error in block. Block suppressed");
           circuit.removeBlock(i);
           j=b.size()+1;
           i=circuit.size()+1;
@@ -451,6 +462,7 @@ void mousePressed() {
      else if (menu.equals("ADD")) blockAdd();
      else if (menu.equals("SIZE")) boardDim();
      else if (menu.equals("SUP")) circuit.removeSelectedBlock();
+     else if (menu.equals("ROT")) circuit.rotSelectedBlock();
      else if (menu.equals("SAVE")) save();
      else if (menu.equals("LOAD")) { circuit=new Circuit(); fileLoad(); }
      else if (menu.equals("QUIT")) exit();

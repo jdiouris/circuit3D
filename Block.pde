@@ -90,6 +90,11 @@ class Block
   {
     return content.get(i);
   }
+  void rot()
+  {
+    rotation++;
+    if (rotation==2) rotation=0;
+  }
   
   void set(int i, String s)
   {

@@ -1,0 +1,42 @@
+$fn=50;
+translate([0,50.8,0]) mirror([0,1,0]) difference()
+{
+    cube([76.2,50.8,2]);
+    translate([2.54,2.54,-0.1]) cylinder(h=10,d=3.1);
+    translate([73.659996,2.54,-0.1]) cylinder(h=10,d=3.1);
+    translate([2.54,48.26,-0.1]) cylinder(h=10,d=3.1);
+    translate([73.659996,48.26,-0.1]) cylinder(h=10,d=3.1);
+    translate([10.16,8.889999,1.5]) cylinder(h=10,d=6.35);
+    translate([8.889999,8.889999,-0.1]) cylinder(h=10,d=1.5);
+    translate([11.43,8.889999,-0.1]) cylinder(h=10,d=1.5);
+    translate([10.16,40.64,1.5]) cylinder(h=10,d=6.35);
+    translate([8.889999,40.64,-0.1]) cylinder(h=10,d=1.5);
+    translate([11.43,40.64,-0.1]) cylinder(h=10,d=1.5);
+    translate([25.4,8.889999,1.5]) cylinder(h=10,d=6.35);
+    translate([24.13,8.889999,-0.1]) cylinder(h=10,d=1.5);
+    translate([26.67,8.889999,-0.1]) cylinder(h=10,d=1.5);
+    translate([40.64,8.889999,1.5]) cylinder(h=10,d=6.35);
+    translate([39.37,8.889999,-0.1]) cylinder(h=10,d=1.5);
+    translate([41.91,8.889999,-0.1]) cylinder(h=10,d=1.5);
+    translate([25.4,40.64,1.5]) cylinder(h=10,d=6.35);
+    translate([24.13,40.64,-0.1]) cylinder(h=10,d=1.5);
+    translate([26.67,40.64,-0.1]) cylinder(h=10,d=1.5);
+    translate([40.64,40.64,1.5]) cylinder(h=10,d=6.35);
+    translate([39.37,40.64,-0.1]) cylinder(h=10,d=1.5);
+    translate([41.91,40.64,-0.1]) cylinder(h=10,d=1.5);
+    translate([25.4,24.13,1.5]) cylinder(h=10,d=6.35);
+    translate([24.13,24.13,-0.1]) cylinder(h=10,d=1.5);
+    translate([26.67,24.13,-0.1]) cylinder(h=10,d=1.5);
+    translate([53.34,27.939999,1.5]) cube([12.7,10.16,10]);
+    translate([55.879997,30.48,-0.1]) cylinder(h=10,d=1.5);
+    translate([58.42,30.48,-0.1]) cylinder(h=10,d=1.5);
+    translate([60.96,30.48,-0.1]) cylinder(h=10,d=1.5);
+    translate([63.5,30.48,-0.1]) cylinder(h=10,d=1.5);
+    translate([55.879997,35.559998,-0.1]) cylinder(h=10,d=1.5);
+    translate([58.42,35.559998,-0.1]) cylinder(h=10,d=1.5);
+    translate([60.96,35.559998,-0.1]) cylinder(h=10,d=1.5);
+    translate([63.5,35.559998,-0.1]) cylinder(h=10,d=1.5);
+    translate([59.69,11.43,-0.1]) cylinder(h=10,d=1.5);
+    translate([67.31,11.43,-0.1]) cylinder(h=10,d=1.5);
+    translate([60.96,10.16,1.5]) cube([5.08,2.54,10]);
+}

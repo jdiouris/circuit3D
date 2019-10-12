@@ -10,7 +10,7 @@ class Generator
     this.circuit=circuit;
   }
   
-  void gen(float xx, float yy, String s)
+  void gen(float xx, float yy, String s, int rotation)
   {
     if (s.equals("BOARD"))
   {
@@ -21,25 +21,35 @@ class Generator
   if (s.equals("HOLE"))
   {
     float d=toFloat(stack.pop());
-    float y=(toFloat(stack.pop())+yy);
-    float x=toFloat(stack.pop())+xx;
+    float y=toFloat(stack.pop());
+    float x=toFloat(stack.pop());
+    if (rotation==1) { float z=x; x=y; y=z; }
+    y=y+yy;
+    x=x+xx;
     lines.append("    translate(["+x*scale+","+y*scale+",-0.1]) cylinder(h=10,d="+d+");");
     
   }
   else if (s.equals("TRACE"))
   {
-    float yw=toFloat(stack.pop());
+     float yw=toFloat(stack.pop());
     float xw=toFloat(stack.pop());
-    float y=(toFloat(stack.pop())+yy);
-    float x=toFloat(stack.pop())+xx;
+    if (rotation==1) { float z=xw; xw=yw; yw=z; }
+    float y=toFloat(stack.pop());
+    float x=toFloat(stack.pop());
+    if (rotation==1) { float z=x; x=y; y=z; }
+    y=y+yy;
+    x=x+xx;
     lines.append("    translate(["+x*scale+","+y*scale+",1.5]) cube(["+xw*scale+","+yw*scale+",10]);");
     
   }
    else if (s.equals("CIRCLE"))
   {
     float d=toFloat(stack.pop());
-    float y=toFloat(stack.pop())+yy;
-    float x=toFloat(stack.pop())+xx;
+    float y=toFloat(stack.pop());
+    float x=toFloat(stack.pop());
+    if (rotation==1) { float z=x; x=y; y=z; }
+    y=y+yy;
+    x=x+xx;
     lines.append("    translate(["+x*scale+","+y*scale+",1.5]) cylinder(h=10,d="+d*scale+");");    
   }
   else if (s.equals("TEXT"))
@@ -95,7 +105,7 @@ class Generator
           if (s.charAt(0)=='"') stack.push(s);
           else
           if (isNumber(s)) stack.push(s);
-          else gen(b.x,b.y,s);
+          else gen(b.x,b.y,s,b.rotation);
     }
     }
      lines.append("}");
