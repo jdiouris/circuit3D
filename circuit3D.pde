@@ -312,6 +312,7 @@ void drawCircuit()
     {
       String s=b.get(j);
       //println(s);
+      if (trim(s).length()>0)
       if (s.charAt(0)=='"') stack.push(s);
       else
       if (isNumber(s)) stack.push(s);
