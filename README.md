@@ -15,7 +15,7 @@ Important notice : this is a simple software and a work in progress (so there is
 - SUP : suppress the selected component.
 - ROT : rotate the selected component.
 - TEXT : add  text at the clicked position of the mouse.
-- WIRE : add wires. This wires will not be printed but can be used as help to connect the components.
+- WIRE : add wires. These wires will not be printed but can be used as help to connect the components.
 - GEN : generate the OPENSCAD file.
 - SAVE : save the circuit in a file.
 - LOAD : load a circuit.
