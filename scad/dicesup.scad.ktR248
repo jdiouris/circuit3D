@@ -1,0 +1,33 @@
+$fn=100;
+ep=3;
+e=0.2;
+module tube(D,H,e)
+{
+    difference()
+    {
+        cylinder(d=D+2*e,H+e);
+        translate([0,0,ep]) cylinder(d=D,H+e);
+    }
+}
+difference()
+{
+    union()
+    {
+    difference()
+    {
+    translate([-ep,-ep,0]) cube([76.2+2*ep,50.8+2*ep,17]);    
+    translate([-e,-e,2]) cube([76.2+2*e,50.8+2*e,17]);
+    }
+    translate([2.54,2.54,-0.1]) cylinder(h=15,d=6);
+    translate([73.659996,2.54,-0.1]) cylinder(h=15,d=6);
+    translate([2.54,48.26,-0.1]) cylinder(h=15,d=6);
+    translate([73.659996,48.26,-0.1]) cylinder(h=15,d=6);
+    }
+    
+    translate([2.54,2.54,-0.1]) cylinder(h=15,d=2);
+    translate([73.659996,2.54,-0.1]) cylinder(h=15,d=2);
+    translate([2.54,48.26,-0.1]) cylinder(h=15,d=2);
+    translate([73.659996,48.26,-0.1]) cylinder(h=15,d=2);
+}
+
+translate([18,50.8/2,0]) tube(17.5,10,2);
